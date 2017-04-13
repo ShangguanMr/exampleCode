@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var str=[];
+			var str1={};
+			$.ajax({
+				url:"ceshi.xml",
+				dataType:"json",
+				success:function(data){
+                 if(typeof(data.rendertheme.render)=="object"){
+                 	var json=data.rendertheme;
+                 	var json1=json['render'];
+                     for(var i in json1){
+                     	delete json1[i]['fill'];
+                     	json1[i]['zoom']=1;
+                     	//console.log(json1[i]);
+                     	str.push(json1[i]);
+                     }
+                        //console.log(str);
+                        delete json1;
+                     	str1['#building']=str;
+                        console.log(str1);
+                 }
+				}
+			});
+		});
+		/*function  deleteJson(json,props){
+            var json1=json[props];
+            delete json1;
+            return json;
+		}
+		function changeJson(json,props,value) {
+			json['props']=value;
+			return json;
+		}*/
+	</script>
+</head>
+<body>
+<button id="btn">点击转换</button>
+<div></div>
+</body>
+</html>
