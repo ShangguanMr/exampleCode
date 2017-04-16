@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/browser.min.js"></script>
+    <script type="text/babel">
+        const test=a=>a+3;
+        console.log(test(3));
+        //创建类；
+        class  Person {
+            constructor(name,age,sex){
+                this.name=name;
+                this.age=age;
+                this.sex=sex;
+            }
+            Speak(){
+                console.log("姓名："+this.name+"\n年龄："+this.age+"\n性别："+this.sex);
+            }
+        }
+        var ps1=new Person("上勇","25岁","男");
+        ps1.Speak();
+        //类的继承；
+        //调用父类的构造器super();
+        class  Parents{
+            constructor(name,age,sex){
+                this.name=name;
+                this.age=age;
+                this.sex=sex;
+            }
+            sayParents(){
+                console.log(this.name+"\n"+this.age+"\n"+this.sex);
+            }
+        }
+        class Son extends Parents{
+            constructor(name,age,sex,num,unity){
+                super(name,age,sex);
+                this.num=num;
+                this.unity=unity;
+            }
+            study(){
+                console.log(this.name+"\n"+this.age+"\n"+this.sex+"\n"+this.num+"\n"+this.unity);
+            }
+        }
+        var P1=new Parents("上勇",25,"男");
+        var S1=new Son("上官俊勇",12,"男","1001","计算机系");
+        P1.sayParents();
+        S1.study();
+        S1.sayParents();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

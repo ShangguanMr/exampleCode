@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/browser.min.js"></script>
+    <script type="text/babel">
+        //函数形参的default
+        //es5
+        function test(a,b){
+            var b=b ||3;
+            return a+b;
+        }
+        console.log(test(1));
+        //es6
+        function Rtest(a=2,b=3) {
+            return a+b;
+        }
+        console.log(Rtest()); //对比；
+        console.log(Rtest(3,4));
+
+
+        //不定参数
+        //es5 arguments function对象的子对象；
+        //存储调用函数的实参，以数组形式存在；
+        function f1(c,d) {
+           alert("形参："+f1.length);
+           alert("实参："+arguments.length);
+           alert(arguments[2]);
+        }
+        f1(1,2,4);
+        //es6
+        function f2(...f) {
+            alert(f.length);
+           console.log(f[0]+"+"+f[1]+"+"+f[2]);
+        }
+        f2(3,4,5);
+
+        //拓展参数
+        var arr=[1,2,3];
+        function f3(a,b,c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        f3(...arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

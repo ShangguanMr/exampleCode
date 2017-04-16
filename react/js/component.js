@@ -16,6 +16,7 @@ const ListItem = React.createClass({
     <ListItem alt="不显示"/>,
         document.getElementById("div6")
  );
+ //
 const Bq=React.createClass({
     getDefaultProps(){
         return {className:"contain",children:{text:"渲染",text1:"内容"}}
@@ -30,3 +31,17 @@ const Bq=React.createClass({
 ReactDOM.render(
     <Bq/>,document.getElementById("div7")
  );
+//
+var Com = React.createClass({
+    propTypes:{name:React.PropTypes.string.isRequired},
+    render(){
+        return <div>
+            {this.props.name}
+        </div>
+    }
+});
+var data ="123";
+ReactDOM.render(
+    <Com name={data}/>,
+    document.getElementById("div8")
+);
